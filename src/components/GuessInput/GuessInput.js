@@ -29,7 +29,17 @@ function GuessInput({ handleGuessSent }) {
         minLength={5}
         required
       />
-      <button>Guess</button>
+      <button
+        style={{
+          color: "black",
+          border: "1px solid black",
+          borderRadius: "4px",
+          marginLeft: "1em",
+          padding: "0 1em",
+        }}
+      >
+        Guess
+      </button>
     </form>
   );
 }

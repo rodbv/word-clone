@@ -7,10 +7,8 @@ import GuessResults from "../GuessResults/GuessResults";
 import ResultBanner from "../ResultBanner/ResultBanner";
 import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
 
-// Pick a random word on every pageload.
-const answer = sample(WORDS);
-// To make debugging easier, we'll log the solution in the console.
-console.info({ answer });
+const initialAnswer = sample(WORDS);
+console.log("Answer: ", initialAnswer);
 
 function Game() {
   const [guessList, setGuessList] = React.useState([]);
@@ -19,9 +17,15 @@ function Game() {
     won: false,
   };
   const [gameResult, setGameResult] = React.useState(DEFAULT_GAME_RESULT);
+  const [answer, setAnswer] = React.useState(initialAnswer);
 
   function handleGuessSent(value) {
     if (gameResult.gameOver) return;
+
+    if (WORDS.indexOf(value) < 0) {
+      console.log("Invalid word: ", value);
+      return;
+    }
 
     console.log({ guess: value });
 
@@ -47,6 +51,9 @@ function Game() {
   function resetGame() {
     setGuessList([]);
     setGameResult(DEFAULT_GAME_RESULT);
+    const nextAnswer = sample(WORDS);
+    setAnswer(nextAnswer);
+    console.log("Answer: ", nextAnswer);
   }
   return (
     <>

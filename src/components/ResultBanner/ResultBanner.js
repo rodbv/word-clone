@@ -6,7 +6,9 @@ function ResultBanner({ gameWon, numGuesses, answer, resetGame }) {
       <div style={{ display: "flex", direction: "row", gap: "8px" }}>
         <div className="banner happy">
           {`You won in ${numGuesses} guesses!`}{" "}
-          <button onClick={resetGame}>Reset</button>
+          <button className="button" onClick={resetGame}>
+            Reset
+          </button>
         </div>{" "}
       </div>
     );
@@ -16,7 +18,9 @@ function ResultBanner({ gameWon, numGuesses, answer, resetGame }) {
     <div style={{ display: "flex", direction: "row", gap: "8px" }}>
       <div className="banner sad">
         {`Sorry, you lost! The word is ${answer}.`}{" "}
-        <button onClick={resetGame}>Reset</button>
+        <button className="button" onClick={resetGame}>
+          Reset
+        </button>
       </div>{" "}
     </div>
   );
