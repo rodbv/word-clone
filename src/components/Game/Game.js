@@ -13,7 +13,6 @@ const answer = sample(WORDS);
 console.info({ answer });
 
 function Game() {
-  const [guess, setGuess] = React.useState("");
   const [guessList, setGuessList] = React.useState([]);
   const DEFAULT_GAME_RESULT = {
     gameOver: false,
@@ -31,7 +30,6 @@ function Game() {
       return;
     }
 
-    setGuess(value);
     const nextGuessList = [...guessList, value];
     setGuessList(nextGuessList);
 
